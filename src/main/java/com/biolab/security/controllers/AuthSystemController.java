@@ -1,7 +1,6 @@
 package com.biolab.security.controllers;
 
 import com.biolab.security.dto.LoginDTO;
-import com.biolab.security.entities.Usuario;
 import com.biolab.security.service.CustomUserDetailsService;
 import jakarta.validation.Valid;
 import org.springframework.http.ResponseEntity;
@@ -13,12 +12,12 @@ import org.springframework.web.bind.annotation.RestController;
 
 // Nome correto AuthController
 @RestController
-public class Login {
+public class AuthSystemController{
 
     private final CustomUserDetailsService userDetailsService;
     private final PasswordEncoder encoder;
 
-    public Login(CustomUserDetailsService userDetailsService, PasswordEncoder encoder) {
+    public AuthSystemController(CustomUserDetailsService userDetailsService, PasswordEncoder encoder) {
         this.userDetailsService = userDetailsService;
         this.encoder = encoder;
     }
