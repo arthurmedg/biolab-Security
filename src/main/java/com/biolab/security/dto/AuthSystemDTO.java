@@ -6,7 +6,7 @@ import lombok.Data;
 
 @Data
 @AllArgsConstructor
-public class LoginDTO {
+public class AuthSystemDTO {
 
     @NotBlank
     private String senha;
