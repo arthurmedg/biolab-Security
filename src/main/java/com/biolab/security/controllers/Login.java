@@ -24,12 +24,12 @@ public class Login {
     }
 
     @PostMapping("login")
-    public ResponseEntity<?> login(@RequestBody @Valid LoginDTO  data) {
+    public ResponseEntity<?> login(@RequestBody @Valid LoginDTO  dto) {
 
         try {
-            var u = userDetailsService.loadUserByUsername(data.getCpf());
+            var u = userDetailsService.loadUserByUsername(dto.getCpf());
 
-            if (!data.getSenha().equals(u.getPassword())) {
+            if (!encoder.matches(dto.getSenha(), u.getPassword())) {
                 return ResponseEntity.ok("Usuario ou Senha incorretos.");
             }
 
