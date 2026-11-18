@@ -1,6 +1,6 @@
 package com.biolab.security.controllers;
 
-import com.biolab.security.dto.LoginDTO;
+import com.biolab.security.dto.AuthSystemDTO;
 import com.biolab.security.service.CustomUserDetailsService;
 import jakarta.validation.Valid;
 import org.springframework.http.ResponseEntity;
@@ -23,7 +23,7 @@ public class AuthSystemController{
     }
 
     @PostMapping("login")
-    public ResponseEntity<?> login(@RequestBody @Valid LoginDTO  dto) {
+    public ResponseEntity<?> login(@RequestBody @Valid AuthSystemDTO dto) {
 
         try {
             var u = userDetailsService.loadUserByUsername(dto.getCpf());
